@@ -31,16 +31,20 @@ $('.sections > .section > .items > li.item').each(function() {
 						var results = responseData.results;
 
 						var imageHtml = '';
+						var bigImage = "";
+						var thumbnailImages = "";
 
 						for(var a = 0; a < results.length; a++) {
 							var result = results[a];
 
-							imageHtml += "<img src=" + result.unescapedUrl  + " style='max-width:280px;max-height:280px;' />";
-							break;
+							if(a !== 0 && a % 2 === 0) {
+								thumbnailImages += '<br />';
+							}
+
+							thumbnailImages += "<img src='" + result.tbUrl + "' style='padding-right:10px;padding-bottom:10px;' alt='" + result.titleNoFormatting + "' />";
+							
 						}
 
-						// var thumbnailUrl = results[0].tbUrl;
-						// var fullsizeUrl  = result[0].unescapedUrl;
 						var moreInformationSecton = "";
 
 						if(wikiDefinition !== "") {
@@ -54,7 +58,7 @@ $('.sections > .section > .items > li.item').each(function() {
 						var popupHtml = ''
 						    + '<div id="foodie-popup-body" style="">'
 						    + '    <div style="text-align:center;padding-bottom:20px;">'
-						    +          imageHtml
+						    +          thumbnailImages
 						    + '    </div>'
 						    + moreInformationSecton
 							+ '</div>';
@@ -70,8 +74,12 @@ $('.sections > .section > .items > li.item').each(function() {
 	            return "Loading....";
 	        }
 	    },
+
 	    position: {
-	        viewport: $(window)
+	        viewport: $(window),
+	        adjust: {
+	            method: 'none shift'
+	        }
 	    }
 	});
 });
