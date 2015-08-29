@@ -20,6 +20,7 @@
         ],
         "js": [
             "dist/jquery.min.js",
+            "dist/jquery.hoverIntent.js",
             "content.js"
         ]
     }]
