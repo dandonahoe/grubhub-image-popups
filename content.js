@@ -55,7 +55,7 @@ function processImageSearchResults(response, itemName) {
 	$('#foodie-popup').css('left', (mouseX - 200 / 2) + 'px');
     $('#foodie-popup').css('top',  (mouseY + 24) + 'px');
     $('#foodie-popup-title').html(itemName);
-    //$('#foodie-popup-body').html(definitionData.Definition + debugFooter);
+    $('#foodie-popup-body').html('<img src="' + results[0].tbUrl + '" />');
     $('#foodie-popup').fadeIn();
 	
 
