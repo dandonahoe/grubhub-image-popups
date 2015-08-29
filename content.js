@@ -21,12 +21,20 @@ $('.sections > .section > .items > li.item').each(function(index) {
 		    type: "GET",
 		    url:searchUrl,
 		    dataType: "json",
-		    success: function(json) {
-		        //definitionData.Definition = $(xml).find("Description").text();
-		        // /successfulLookup(definitionData);
-alert(json);
-		        console.log("Success?");
+		    success: function(response) {
+		        processImageSearchResults(response);
 		    }
 	    });
+	}, function() {
+		console.log("exiting?");
 	});
 });
+
+
+function processImageSearchResults(response) {
+	var responseData = response.responseData;
+
+	var results = responseData.results;
+
+	alert(results[0].tbUrl);//teakdoor.com/Gallery/albums/userpics/10004/Thai_stir_fried_beef_holy_basil_pad_ka_pow.jpg);
+}
