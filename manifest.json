@@ -18,8 +18,12 @@
             "http://*.grubhub.com/*",
             "https://*.grubhub.com/*"
         ],
+        "css": [
+            "dist/jquery.qtip.min.css"
+        ],
         "js": [
             "dist/jquery.min.js",
+            "dist/jquery.qtip.min.js",
             "dist/jquery.hoverIntent.js",
             "content.js"
         ]
