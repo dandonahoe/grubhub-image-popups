@@ -19,6 +19,7 @@
             "https://*.grubhub.com/*"
         ],
         "js": [
+            "dist/jquery.min.js",
             "content.js"
         ]
     }]

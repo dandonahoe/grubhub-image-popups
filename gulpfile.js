@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+var gulp  = require('gulp'),
 	watch = require('gulp-watch');
 
 
@@ -9,8 +9,6 @@ gulp.task('copyFiles', function () {
 		.pipe(gulp.dest('dist'));
 });
 
-
 gulp.task('watch', function() {
 	gulp.watch('./node_modules/**/*', ['copyFiles']);
 });
-
