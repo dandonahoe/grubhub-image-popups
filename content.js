@@ -8,6 +8,6 @@ $(document).ready(function() {
 
 
 
-$('.sections > .section').each(function(index) {
-	alert("WTF");
+$('.sections > .section > .items > li.item').each(function(index) {
+	console.log("WTF mate food item?");
 });
