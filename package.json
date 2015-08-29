@@ -1,0 +1,28 @@
+{
+  "name": "grubhub-seamless-food-pics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "content.js",
+  "dependencies": {
+    "bower": "^1.5.2",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.3.5",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "gulp-watch": "^4.3.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dandonahoe/grubhub-seamless-food-pics.git"
+  },
+  "author": "Dan Donahoe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dandonahoe/grubhub-seamless-food-pics/issues"
+  },
+  "homepage": "https://github.com/dandonahoe/grubhub-seamless-food-pics#readme"
+}
