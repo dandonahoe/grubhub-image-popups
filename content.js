@@ -6,4 +6,8 @@ $(document).ready(function() {
 });
 
 
-$('ul.sections > li').css('background-color', '#f00');
+
+
+$('.sections > .section').each(function(index) {
+	alert("WTF");
+});
