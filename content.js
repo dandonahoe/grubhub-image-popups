@@ -22,26 +22,54 @@ $(document).ready(function() {
 });
 
 
-$('.sections > .section > .items > li.item').each(function(index) {
+$('.sections > .section > .items > li.item').each(function() {
 	
-	$(this).hoverIntent(function(e) {
-		var itemName = $(this).find('.name').text();
-		console.log("Food item name(" + itemName + ")");
+	$(this).qtip({
+	    content: {
+	        text: 'Loading...',
+	        ajax: {
+	            url: 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + encodeURIComponent($(this).find('.name').text()),
+	            type: 'GET', // POST or GET
+	            dataType: "json",
+	            success: function(response, status) {
+	            	var responseData = response.responseData;
 
-		var searchUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + encodeURIComponent(itemName);
+					var results = responseData.results;
 
-		$.ajax({
-		    type: "GET",
-		    url:searchUrl,
-		    dataType: "json",
-		    success: function(response) {
-		        processImageSearchResults(response, itemName);
-		    }
-	    });
-	}, function() {
-		$('#foodie-popup').fadeOut();
+					
+
+	            	this.set('content.text', results[0].tbUrl);
+	            }
+	        }
+	    }
 	});
 });
+
+
+
+// $('.sections > .section > .items > li.item').each(function(index) {
+	
+	
+// 	$(this).hoverIntent(function(e) {
+// 		var itemName = $(this).find('.name').text();
+// 		console.log("Food item name(" + itemName + ")");
+
+// 		var searchUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + encodeURIComponent(itemName);
+
+// 		$.ajax({
+// 		    type: "GET",
+// 		    url:searchUrl,
+// 		    dataType: "json",
+// 		    success: function(response) {
+// 		        processImageSearchResults(response, itemName);
+// 		    }
+// 	    });
+// 	}, function() {
+// 		$('#foodie-popup').fadeOut();
+// 	});
+
+
+// });
 
 
 function processImageSearchResults(response, itemName) {
