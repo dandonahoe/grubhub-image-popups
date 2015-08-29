@@ -12,6 +12,7 @@ $('.sections > .section > .items > li.item').each(function(index) {
 	
 
 	$(this).hoverIntent(function(e) {
-			alert("Boop");
+		var itemName = $(this).find('.name').text();
+		console.log("Food item name(" + itemName + ")");
 	});
 });
