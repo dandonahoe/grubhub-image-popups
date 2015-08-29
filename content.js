@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 
 $('.sections > .section > .items > li.item').each(function() {
-	
+
 	$(this).qtip({
 	    content: {
 	        text: 'Loading...',
@@ -36,11 +36,12 @@ $('.sections > .section > .items > li.item').each(function() {
 
 					var results = responseData.results;
 
-					
-
 	            	this.set('content.text', results[0].tbUrl);
 	            }
 	        }
+	    },
+	    position: {
+	        viewport: $(window)
 	    }
 	});
 });
