@@ -1,0 +1,19 @@
+{
+  "name": "grubhub-seamless-food-pics",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dandonahoe/grubhub-seamless-food-pics",
+  "authors": [
+    "Dan Donahoe <daniel.donahoe@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery-hoverintent": "~1.8.1"
+  }
+}
