@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+
+    "name": "Grubhub and Seamless Food Image Popups",
+    "description": "This extensions will pop up a google image search when hovering over a food item",
+    "version": "0.1",
+
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+
+    "permissions": [
+        "tabs","<all_urls>"
+    ],
+
+    "content_scripts": [{
+        "matches": [
+            "http://*.grubhub.com/*",
+            "https://*.grubhub.com/*"
+        ],
+        "js": [
+            "content.js"
+        ]
+    }]
+}
