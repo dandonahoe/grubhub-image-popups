@@ -35,7 +35,6 @@ $('.sections > .section > .items > li.item').each(function() {
 	        text: function(event, api) {
 	        	$.ajax({
 	                type: "GET",
-
 	                url: "https://en.wikipedia.org/w/api.php?action=opensearch&limit=1&format=json&search=" + itemName,
 	                dataType: "json"
 
@@ -52,6 +51,30 @@ $('.sections > .section > .items > li.item').each(function() {
 	                }
 
 	                console.log("wikipage(" + wikiPageUrl + "), def(" + wikiDefinition + ")");
+
+	                //api.set('content.text', wikiDefinition);//$("#foodie-pupup").html());
+
+	            	$.ajax({
+		                type: "GET",
+		                url: "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + encodeURIComponent(itemName),
+		                dataType: "json"
+
+		            }).success(function(response, status) {
+
+		            	var responseData = response.responseData;
+
+						var results = responseData.results;
+
+						var imageUrl = results[0].tbUrl;
+
+						var popupHtml = ''
+					    + '<div id="foodie-popup-body" style="">'
+					    + '		<img src="' + imageUrl + '" alt="' + itemName + '" />'
+					    + '		<div>' + wikiDefinition + '<div>'
+					    + '</div>';
+
+		            	api.set('content.text', popupHtml);//$("#foodie-pupup").html());
+		            });
 
 	            }, function(xhr, status, error) {
 	                // Upon failure... set the tooltip content to the status and error value
