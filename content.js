@@ -9,13 +9,13 @@ $(document).ready(function() {
     document.onmousemove = function(e) {
         mouseX = (window.Event) ? e.pageX : event.clientX + document.body.scrollLeft;
         mouseY = (window.Event) ? e.pageY : event.clientY + document.body.scrollTop;
-
-        console.log('x('+mouseX+') y('+mouseY+')');
 	};
 
 	var hiddenPopup = 
 	    '    <div id="foodie-popup" style="background-color:#FFFDCF;padding:10px;box-shadow: 4px 2px 20px rgba(0, 0, 0, 0.22);width:200px;border-radius:10px;border:1px solid #000000;position:absolute;display:none;text-alignLleft;">'
-	    + 'NOM NOM NOM'
+	    + '		<h2 id="foodie-popup-title"></h2>'
+	    + '		<div id="foodie-popup-body">'
+	    + '     </div>'
 	    + '    </div>';
 	    
 	$('body').append(hiddenPopup);
@@ -39,7 +39,7 @@ $('.sections > .section > .items > li.item').each(function(index) {
 		    }
 	    });
 	}, function() {
-		console.log("exiting?");
+		$('#foodie-popup').fadeOut();
 	});
 });
 
@@ -49,12 +49,12 @@ function processImageSearchResults(response, itemName) {
 
 	var results = responseData.results;
 
-	alert(results[0].tbUrl);//teakdoor.com/Gallery/albums/userpics/10004/Thai_stir_fried_beef_holy_basil_pad_ka_pow.jpg);
+	results[0].tbUrl
 
 
 	$('#foodie-popup').css('left', (mouseX - 200 / 2) + 'px');
     $('#foodie-popup').css('top',  (mouseY + 24) + 'px');
-    //$('#foodie-popup-title').html(popupHeader);
+    $('#foodie-popup-title').html(itemName);
     //$('#foodie-popup-body').html(definitionData.Definition + debugFooter);
     $('#foodie-popup').fadeIn();
 	
