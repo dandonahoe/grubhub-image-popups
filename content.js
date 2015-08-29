@@ -1,8 +1,8 @@
-$('.sections > .section > .items > li.item').each(function() {
+function setupItemPopup(element) {
 
-	var itemName = $(this).find('.name').text();
+	var itemName = $(element).find('.name').text();
 
-	$(this).qtip({
+	$(element).qtip({
 	    content: {
 	        text: function(event, api) {
 	        	$.ajax({
@@ -42,13 +42,12 @@ $('.sections > .section > .items > li.item').each(function() {
 							}
 
 							thumbnailImages += "<img src='" + result.tbUrl + "' style='padding-right:10px;padding-bottom:10px;' alt='" + result.titleNoFormatting + "' />";
-							
 						}
 
 						var moreInformationSecton = "";
 
 						if(wikiDefinition !== "") {
-				    		moreInformationSecton =
+				    		moreInformationSecton = ''
 					    		+ '<div>' 
 					    		+ '		<h3>More information<h3>'
 							    + '		<div style="max-width:320px;">' + wikiDefinition + '<div>'
@@ -74,7 +73,9 @@ $('.sections > .section > .items > li.item').each(function() {
 	            return "Loading....";
 	        }
 	    },
-
+	    style: {
+	    	 classes: 'qtip-bootstrap'
+	    },
 	    position: {
 	        viewport: $(window),
 	        adjust: {
@@ -82,4 +83,9 @@ $('.sections > .section > .items > li.item').each(function() {
 	        }
 	    }
 	});
+}
+
+$('.sections > .section > .items > li.item').each(function() {
+
+	setupItemPopup(this);
 });
