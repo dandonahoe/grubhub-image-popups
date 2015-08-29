@@ -9,5 +9,9 @@ $(document).ready(function() {
 
 
 $('.sections > .section > .items > li.item').each(function(index) {
-	console.log("WTF mate food item?");
+	
+
+	$(this).hoverIntent(function(e) {
+			alert("Boop");
+	});
 });
