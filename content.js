@@ -24,11 +24,14 @@ $(document).ready(function() {
 
 $('.sections > .section > .items > li.item').each(function() {
 
+	var itemName = $(this).find('.name').text();
+
 	$(this).qtip({
 	    content: {
 	        text: 'Loading...',
+	        title: itemName,
 	        ajax: {
-	            url: 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + encodeURIComponent($(this).find('.name').text()),
+	            url: 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + encodeURIComponent(itemName),
 	            type: 'GET', // POST or GET
 	            dataType: "json",
 	            success: function(response, status) {
@@ -36,7 +39,7 @@ $('.sections > .section > .items > li.item').each(function() {
 
 					var results = responseData.results;
 
-	            	this.set('content.text', results[0].tbUrl);
+	            	this.set('content.text', "<img src='" + results[0].tbUrl + "' />");
 	            }
 	        }
 	    },
