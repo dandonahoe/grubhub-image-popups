@@ -37,26 +37,23 @@ function setupItemPopup(element) {
 						for(var a = 0; a < results.length; a++) {
 							var result = results[a];
 
-							if(a !== 0 && a % 2 === 0) {
-								thumbnailImages += '<br />';
-							}
-
-							thumbnailImages += "<img src='" + result.tbUrl + "' style='padding-right:10px;padding-bottom:10px;' alt='" + result.titleNoFormatting + "' />";
+							thumbnailImages += 
+								"<div style='height:150px;float:left;padding:4px;border:radius:6px;margin-right:10px;margin-bottom:10px;'><img src='" + result.tbUrl + "' style='box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.57);' alt='" + result.titleNoFormatting + "' /> </div>";
 						}
 
 						var moreInformationSecton = "";
 
 						if(wikiDefinition !== "") {
 				    		moreInformationSecton = ''
-					    		+ '<div>' 
+					    		+ '<div style="clear:both;margin-top:20px;">' 
 					    		+ '		<h3>More information<h3>'
-							    + '		<div style="max-width:320px;">' + wikiDefinition + '<div>'
+							    + '		<div style="font-weight:normal;">' + wikiDefinition + '</div>'
 							    + '</div>';
 					    }
 
 						var popupHtml = ''
 						    + '<div id="foodie-popup-body" style="">'
-						    + '    <div style="text-align:center;padding-bottom:20px;">'
+						    + '    <div style="text-align:center;">'
 						    +          thumbnailImages
 						    + '    </div>'
 						    + moreInformationSecton
@@ -75,6 +72,7 @@ function setupItemPopup(element) {
 	    },
 	    style: {
 	    	 classes: 'qtip-bootstrap'
+	    	 
 	    },
 	    position: {
 	        viewport: $(window),
