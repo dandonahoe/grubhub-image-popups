@@ -84,6 +84,10 @@ function setupItemPopup(element) {
 }
 
 $('.sections > .section > .items > li.item').each(function() {
+	setupItemPopup(this);
+});
 
+
+$('.trendingItemsSection > .trending-items > li.item').each(function() {
 	setupItemPopup(this);
 });
