@@ -29,15 +29,38 @@ $('.sections > .section > .items > li.item').each(function() {
 
 		            	var responseData = response.responseData;
 						var results = responseData.results;
-						var imageUrl = results[0].tbUrl;
+
+						var imageHtml = '';
+
+						for(var a = 0; a < results.length; a++) {
+							var result = results[a];
+
+							imageHtml += "<img src=" + result.unescapedUrl  + " style='max-width:280px;max-height:280px;' />";
+							break;
+						}
+
+						// var thumbnailUrl = results[0].tbUrl;
+						// var fullsizeUrl  = result[0].unescapedUrl;
+						var moreInformationSecton = "";
+
+						if(wikiDefinition !== "") {
+				    		moreInformationSecton =
+					    		+ '<div>' 
+					    		+ '		<h3>More information<h3>'
+							    + '		<div style="max-width:320px;">' + wikiDefinition + '<div>'
+							    + '</div>';
+					    }
 
 						var popupHtml = ''
-					    + '<div id="foodie-popup-body" style="">'
-					    + '		<img src="' + imageUrl + '" alt="' + itemName + '" />'
-					    + '		<div>' + wikiDefinition + '<div>'
-					    + '</div>';
+						    + '<div id="foodie-popup-body" style="">'
+						    + '    <div style="text-align:center;padding-bottom:20px;">'
+						    +          imageHtml
+						    + '    </div>'
+						    + moreInformationSecton
+							+ '</div>';
 
-		            	api.set('content.text', popupHtml);//$("#foodie-pupup").html());
+					    api.set('content.title', itemName);
+		            	api.set('content.text', popupHtml);
 		            });
 
 	            }, function(xhr, status, error) {
