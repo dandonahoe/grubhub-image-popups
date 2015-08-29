@@ -24,6 +24,7 @@
         "js": [
             "dist/jquery.min.js",
             "dist/jquery.qtip.min.js",
+            "dist/imagesloaded.pkg.min.js",
             "dist/jquery.hoverIntent.js",
             "content.js"
         ]
