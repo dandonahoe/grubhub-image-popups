@@ -1,12 +1,11 @@
 {
     "manifest_version": 2,
 
-    "name": "Grubhub and Seamless Food Image Popups",
-    "description": "This extensions will pop up a google image search when hovering over a food item",
-    "version": "0.1",
+    "name": "Grubhub Instant Food Popup",
+    "description": "Hover over a food item in Grubhub and this extension looks up images of that food as well as extra info about the food on Wikipedia.",
+    "version": "1.1",
 
     "browser_action": {
-        "default_icon": "icon.png"
     },
 
     "permissions": [

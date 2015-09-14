@@ -1,3 +1,17 @@
+$(function(){
+
+	console.log("HELLOOO");
+	// Bind the event.
+	$(window).bind( 'hashchange', function(e) {
+		console.log("PAGE CHANGE - RESCAN");	
+	});
+
+  // Trigger the event (useful on page load).
+  //hashchanged();
+  
+
+});
+
 function setupItemPopup(element) {
 
 	var itemName = $(element).find('.name').text();
@@ -84,10 +98,12 @@ function setupItemPopup(element) {
 }
 
 $('.sections > .section > .items > li.item').each(function() {
+	console.log("Running on page 1");
 	setupItemPopup(this);
 });
 
 
 $('.trendingItemsSection > .trending-items > li.item').each(function() {
+	console.log("Running on page 2");
 	setupItemPopup(this);
 });
