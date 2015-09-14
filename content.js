@@ -1,15 +1,39 @@
-$(function(){
 
-	console.log("HELLOOO");
-	// Bind the event.
-	$(window).bind( 'hashchange', function(e) {
-		console.log("PAGE CHANGE - RESCAN");	
+function scanPage() {
+	console.log("Page scanned");
+
+	$('.sections > .section > .items > li.item').each(function() {
+		console.log("Running on page 1");
+		setupItemPopup(this);
 	});
 
-  // Trigger the event (useful on page load).
-  //hashchanged();
-  
 
+	$('.trendingItemsSection > .trending-items > li.item').each(function() {
+		console.log("Running on page 2");
+		setupItemPopup(this);
+	});	
+}
+
+var lastLocation = "";
+
+$(function(){
+
+	setInterval(function() {
+
+		console.log(lastLocation + " vs " + window.location.href);
+		if(lastLocation !== window.location.href) {
+			scanPage();		
+			lastLocation = window.location.href;
+		}
+		else {
+			console.log("not scanning page");
+		}
+
+	}, 1000);
+  
+  	scanPage();
+
+  	lastLocation = window.location.href;
 });
 
 function setupItemPopup(element) {
@@ -97,13 +121,5 @@ function setupItemPopup(element) {
 	});
 }
 
-$('.sections > .section > .items > li.item').each(function() {
-	console.log("Running on page 1");
-	setupItemPopup(this);
-});
 
 
-$('.trendingItemsSection > .trending-items > li.item').each(function() {
-	console.log("Running on page 2");
-	setupItemPopup(this);
-});
